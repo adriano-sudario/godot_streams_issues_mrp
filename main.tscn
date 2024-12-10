@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://owkcjodwsvjg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_b6bdf"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6bdf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="IssueOneButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Interactive stream 'get_playback_position' returns always zero"
+
+[node name="IssueTwoButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Stream sync play not setting position right sometimes"
+
+[node name="ProposalOneButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Stream sync unintuitive way of adding stream through code"
+
+[node name="ProposalTwoButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Stream sync stops when stream is set while playing"
+
+[connection signal="pressed" from="VBoxContainer/IssueOneButton" to="." method="_on_issue_one_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/IssueTwoButton" to="." method="_on_issue_two_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ProposalOneButton" to="." method="_on_proposal_one_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ProposalTwoButton" to="." method="_on_proposal_two_button_pressed"]

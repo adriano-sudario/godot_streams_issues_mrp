@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0ot7u15r61jj"]
+
+[ext_resource type="Script" path="res://bugs/interactive_stream_get_playback_position_returns_always_zero.gd" id="1_i2r6v"]
+[ext_resource type="AudioStream" uid="uid://c5xqr0dbjedfe" path="res://sounds/707_core_kit.mp3" id="2_umik8"]
+[ext_resource type="AudioStream" uid="uid://bqs8jkrfgvk6u" path="res://sounds/canadian_boards.mp3" id="3_e0bnb"]
+[ext_resource type="AudioStream" uid="uid://24c20djxa3tt" path="res://sounds/suburban.mp3" id="4_4fupa"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_wia3j"]
+stream_count = 3
+stream_0/stream = ExtResource("2_umik8")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_e0bnb")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_4fupa")
+stream_2/volume = 0.0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_76jbe"]
+clip_count = 1
+clip_0/name = &""
+clip_0/stream = SubResource("AudioStreamSynchronized_wia3j")
+clip_0/auto_advance = 0
+
+[node name="InteractiveStreamGetPlaybackPositionReturnsAlwaysZero" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2r6v")
+
+[node name="PlaybackPositionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 10.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -76.5
+offset_right = 462.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Method 'get_playback_position' returns always 0 if stream is AudioStreamInteractive
+
+space: toggle play/stop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamInteractive_76jbe")

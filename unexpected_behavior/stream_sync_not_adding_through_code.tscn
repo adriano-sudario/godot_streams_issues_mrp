@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://mbqgt5h17fx3"]
+
+[ext_resource type="Script" path="res://unexpected_behavior/stream_sync_not_adding_through_code.gd" id="1_ruvfc"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_nq1uv"]
+
+[node name="StreamSyncNotAddingThroughCode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ruvfc")
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 10.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -76.5
+offset_right = 462.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Adding streams via code its currently not intuitive
+
+keyboard 1: try to load streams only using 'set_sync_stream' method (wont play after pressing space)
+keyboard 2: load streams with a workaround (i only realized that after messing with engine's code)
+keyboard 3: load streams with proposal's way (will crash if not on proposal's PR branch)
+space: toggle play/stop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_nq1uv")

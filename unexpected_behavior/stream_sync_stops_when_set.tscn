@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ftg6sgxxq6q"]
+
+[ext_resource type="AudioStream" uid="uid://c5xqr0dbjedfe" path="res://sounds/707_core_kit.mp3" id="1_f6erl"]
+[ext_resource type="Script" path="res://unexpected_behavior/stream_sync_stops_when_set.gd" id="1_v2gev"]
+[ext_resource type="AudioStream" uid="uid://bqs8jkrfgvk6u" path="res://sounds/canadian_boards.mp3" id="2_q0b4w"]
+[ext_resource type="AudioStream" uid="uid://24c20djxa3tt" path="res://sounds/suburban.mp3" id="3_uu1v1"]
+[ext_resource type="AudioStream" uid="uid://4wku0ilanyck" path="res://sounds/guitarrinha1.mp3" id="4_rwse7"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_aej2t"]
+stream_count = 4
+stream_0/stream = ExtResource("1_f6erl")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_q0b4w")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_uu1v1")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_rwse7")
+stream_3/volume = 0.0
+
+[node name="StreamSyncStopsWhenSet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2gev")
+
+[node name="PlaybackPositionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 10.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -76.5
+offset_right = 462.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Calling 'set_sync_stream' will stop AudioStreamSynchronized stream
+
+space: toggle play/stop
+keyboard 1: toggle stream sound (will stop if playing)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_aej2t")
