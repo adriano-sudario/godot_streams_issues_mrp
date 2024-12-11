@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjp5ifpo0v88e"]
+
+[ext_resource type="Script" path="res://bugs/stream_sync_play_and_seek_not_setting_position_right_sometimes.gd" id="1_fm31s"]
+[ext_resource type="AudioStream" uid="uid://c5xqr0dbjedfe" path="res://sounds/707_core_kit.mp3" id="2_mw0m8"]
+[ext_resource type="AudioStream" uid="uid://bqs8jkrfgvk6u" path="res://sounds/canadian_boards.mp3" id="3_i325x"]
+[ext_resource type="AudioStream" uid="uid://24c20djxa3tt" path="res://sounds/suburban.mp3" id="4_gsri1"]
+[ext_resource type="AudioStream" uid="uid://4wku0ilanyck" path="res://sounds/guitarrinha1.mp3" id="5_vu8pv"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_jvr61"]
+stream_count = 4
+stream_0/stream = ExtResource("2_mw0m8")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_i325x")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_gsri1")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("5_vu8pv")
+stream_3/volume = 0.0
+
+[node name="StreamSyncPlayAndSeekNotSettingPositionRightSometimes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fm31s")
+
+[node name="PlaybackPositionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 10.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "playback position: 0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -25.0
+offset_right = 19.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Might start playing out of sync if position set on play is higher than one of stream's length
+if AudioStreamSynchronized has streams with different length
+
+space: toggle play/stop
+shift + space: if not playing will start on a position which will reproduce the bug / if playing will seek on a position which will reproduce the bug
+keyboard 1: calls 'audio_player.play(audio_player.get_playback_position())' (will reproduce bug if called after around 16s)
+keyboard 2: calls 'audio_player.seek(audio_player.get_playback_position())' (will reproduce bug if called after around 16s)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_jvr61")
