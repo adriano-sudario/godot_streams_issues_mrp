@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://mbqgt5h17fx3"]
 
-[ext_resource type="Script" path="res://unexpected_behavior/stream_sync_not_adding_through_code.gd" id="1_ruvfc"]
+[ext_resource type="Script" uid="uid://ce6erudc5aarn" path="res://unexpected_behaviors/stream_sync_not_adding_through_code.gd" id="1_ruvfc"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_nq1uv"]
 

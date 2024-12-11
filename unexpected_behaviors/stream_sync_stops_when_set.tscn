@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8ftg6sgxxq6q"]
 
 [ext_resource type="AudioStream" uid="uid://c5xqr0dbjedfe" path="res://sounds/707_core_kit.mp3" id="1_f6erl"]
-[ext_resource type="Script" path="res://unexpected_behavior/stream_sync_stops_when_set.gd" id="1_v2gev"]
+[ext_resource type="Script" uid="uid://ce05mkc38c0bb" path="res://unexpected_behaviors/stream_sync_stops_when_set.gd" id="1_v2gev"]
 [ext_resource type="AudioStream" uid="uid://bqs8jkrfgvk6u" path="res://sounds/canadian_boards.mp3" id="2_q0b4w"]
 [ext_resource type="AudioStream" uid="uid://24c20djxa3tt" path="res://sounds/suburban.mp3" id="3_uu1v1"]
 [ext_resource type="AudioStream" uid="uid://4wku0ilanyck" path="res://sounds/guitarrinha1.mp3" id="4_rwse7"]
