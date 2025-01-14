@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ce05mkc38c0bb" path="res://unexpected_behaviors/stream_sync_stops_when_set.gd" id="1_v2gev"]
 [ext_resource type="AudioStream" uid="uid://bqs8jkrfgvk6u" path="res://sounds/canadian_boards.mp3" id="2_q0b4w"]
 [ext_resource type="AudioStream" uid="uid://24c20djxa3tt" path="res://sounds/suburban.mp3" id="3_uu1v1"]
-[ext_resource type="AudioStream" uid="uid://4wku0ilanyck" path="res://sounds/guitarrinha1.mp3" id="4_rwse7"]
+[ext_resource type="AudioStream" uid="uid://4wku0ilanyck" path="res://sounds/guitarrinha1.mp3" id="5_lgvke"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_aej2t"]
 stream_count = 4
@@ -14,7 +14,7 @@ stream_1/stream = ExtResource("2_q0b4w")
 stream_1/volume = 0.0
 stream_2/stream = ExtResource("3_uu1v1")
 stream_2/volume = 0.0
-stream_3/stream = ExtResource("4_rwse7")
+stream_3/stream = ExtResource("5_lgvke")
 stream_3/volume = 0.0
 
 [node name="StreamSyncStopsWhenSet" type="Control"]
@@ -36,6 +36,7 @@ offset_top = 10.0
 offset_right = 0.5
 offset_bottom = 33.0
 grow_horizontal = 2
+text = "playback position: 0.00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
